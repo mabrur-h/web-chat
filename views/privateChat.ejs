@@ -1,0 +1,18 @@
+<%-include('parts/header')%>
+
+<section class="container">
+    <h2>Private Chat</h2>
+    <div>
+        <ul>
+            <%for(user of users) {%>
+                <li>
+                    <a href="/private-chat/<%=user.id%>">
+                        <%=user.name%>
+                    </a>
+                </li>
+            <%}%>
+        </ul>
+    </div>
+</section>
+
+<%-include('parts/footer')%>

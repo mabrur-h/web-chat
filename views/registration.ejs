@@ -1,0 +1,31 @@
+<%- include('parts/header') %>
+
+<main class="mt-4">
+    <div class="container text-center">
+        <h1>Registration</h1>
+        <div class="row">
+            <div class="col-lg-6 col-12 mx-auto">
+                <% if ( error ) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                <% } %>
+                <form action="/registration" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="email" autocomplete="off" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required value="admin@admin.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" autocomplete="off" class="form-control" id="floatingInput" placeholder="name@example.com" name="name" minlength="3" value="mabrur">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" autocomplete="off" class="form-control" id="floatingPassword" placeholder="Password" name="password" minlength="6" value="123456">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('parts/footer') %>

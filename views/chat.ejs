@@ -1,0 +1,41 @@
+<%-include('parts/header')%>
+
+<% var error, msg %>
+
+<section class="container">
+    <div class="mt-4">
+        <% if ( error ) { %>
+            <div class="alert alert-danger">
+                <%=error%>
+            </div>
+        <%}%>
+        <h1>Chat</h1>
+        <form action="/chat" method="post" class="chat-form mt-5">
+            <div class="form-floating">
+                <textarea class="form-control" required placeholder="Message" id="floatingTextarea" name="message"></textarea>
+                <label for="floatingTextarea">Messages</label>
+            </div>
+            <div class="input-group mt-4">
+                <button class="btn btn-outline-primary w-50" type="submit">Yuborish</button>
+                <a class="btn btn-outline-primary w-50" href="/chat">Yangilash</a>
+            </div>
+        </form>
+
+        <ul>
+            <%for (let message of result) {%>
+            <%if ( message.user_id == id ) { %>
+                    <li class="bg-danger">
+                        <%=message.message%>
+                    </li>
+                <%} else {%>
+                    <li class="bg-success">
+                        <%=message.message%>
+                    </li>
+                <%}%>
+            <%}%>
+        </ul>
+
+    </div>
+</section>
+
+<%-include('parts/footer')%>

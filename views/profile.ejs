@@ -1,0 +1,30 @@
+<%- include('parts/header') %>
+
+    <section class="mt-4">
+        <div class="container mt-4">
+            <div class="card">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="photo">
+                            <img width="400" height="400" src="<%= photo %>" alt="user photo" class="card-img-top img-fluid">
+                        </label>
+                        <% if ( profile.id === id ) { %>
+                        <input type="file" id="photo" class="visually-hidden">
+                        <% } %>
+                    </div>
+                    <div class="col-8">
+                        <h2 class="card-title"><%=profile.name%>'s profile</h2>
+                        <ul class="mt-2 list-unstyled">
+                            <li class="mt-2">
+                                <p class="fs-4">Email: <%=profile.email%></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/profile.js"></script>
+
+<%- include('parts/footer') %>

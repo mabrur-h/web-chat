@@ -1,0 +1,30 @@
+<%-include('parts/header')%>
+<%var showMessages, error, user, paramsId%>
+<section class="container">
+    <%if(error) {%>
+        <h2><%=error%></h2>
+    <%}%>
+    <h2>Private Chat</h2>
+    <h3><%= id%></h3>
+    <h4><%= paramsId %></h4>
+    <form action="/private-chat/<%= paramsId %>" method="post" class="chat-form mt-5">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="min-height: 70px; max-height: 150px; resize: none" required name="message"></textarea>
+            <label for="floatingTextarea2">Comments</label>
+        </div>
+        <button class="btn btn-outline-primary w-50" type="submit">Send</button>
+    </form>
+    <ul>
+        <%for(message of privateMessages) {%>
+            <%if ( message.from_id == paramsId && id == message.to_id ) {%>
+                <li class="bg-success"><%=message.message%></li>
+            <%}%>
+            <%if ( paramsId == message.to_id && id == message.from_id ) {%>
+                <li class="bg-danger"><%=message.message%></li>
+            <%}%>
+        <%}%>
+    </ul>
+
+</section>
+
+<%-include('parts/footer')%>
